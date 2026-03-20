@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Eid Mubarak ❤️</title>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  font-family: sans-serif;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: skyMove 20s ease-in-out infinite alternate;
+}
+/* typing indicator */
+.typing {
+  color: gray;
+  font-size: 12px;
+  padding-left: 10px;
+  display: none;
+}
+
+/* seen text */
+.seen {
+  font-size: 11px;
+  color: gray;
+  text-align: right;
+  margin-right: 10px;
+}
+/* ✨ sky movement */
+@keyframes skyMove {
+  from { background-position: 0% 50%; }
+  to { background-position: 100% 50%; }
+}
+
+/* 🌙 Moon */
+.moon {
+  position: absolute;
+  top: 60px;
+  right: 80px;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #fff8dc, gold);
+  animation: moonGlow 4s ease-in-out infinite;
+}
+
+/* crescent */
+.moon::after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 20px;
+  width: 90px;
+  height: 90px;
+  background: linear-gradient(135deg, #0f2027, #203a43);
+  border-radius: 50%;
+  filter: blur(1px);
+}
+
+/* moon glow */
+@keyframes moonGlow {
+  0% { box-shadow: 0 0 25px rgba(255,215,0,0.6); }
+  50% { box-shadow: 0 0 50px rgba(255,215,0,0.9); }
+  100% { box-shadow: 0 0 25px rgba(255,215,0,0.6); }
+}
+
+/* 🕌 Mosque */
+.mosque {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 180px;
+  background: url('https://pngimg.com/uploads/mosque/mosque_PNG24.png') repeat-x;
+  background-size: contain;
+  opacity: 0.4;
+}
+
+/* ⭐ Stars */
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  animation: twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.2; transform: scale(1); }
+  100% { opacity: 1; transform: scale(1.5); }
+}
+
+/* ⭐ Golden floating stars */
+.gold-star {
+  position: fixed;
+  bottom: -20px;
+  font-size: 18px;
+  color: gold;
+  animation: starFloat 6s linear infinite;
+  pointer-events: none;
+  text-shadow: 0 0 10px gold, 0 0 20px gold;
+}
+
+@keyframes starFloat {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-110vh) scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* ☁️ Clouds */
+.cloud {
+  position: absolute;
+  top: 80px;
+  left: -200px;
+  width: 200px;
+  height: 60px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 50px;
+  filter: blur(10px);
+  animation: moveCloud 30s linear infinite;
+}
+
+.cloud2 {
+  top: 150px;
+  width: 250px;
+  animation-duration: 45s;
+}
+
+@keyframes moveCloud {
+  from { left: -200px; }
+  to { left: 110%; }
+}
+
+/* 📱 Phone */
+.phone {
+  width: 320px;
+  height: 600px;
+  background: black;
+  border-radius: 30px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+}
+
+/* Header */
+.header {
+  padding: 10px;
+  border-bottom: 1px solid #222;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+}
+
+.profile img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+
+.name { font-weight: bold; }
+.username { font-size: 12px; color: gray; }
+
+/* Chat */
+.chat {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Messages */
+.msg {
+  max-width: 75%;
+  padding: 10px 14px;
+  margin: 6px;
+  border-radius: 18px;
+  font-size: 14px;
+}
+
+.sent {
+  background: linear-gradient(45deg, #d62976, #962fbf, #4f5bd5);
+  color: white;
+  align-self: flex-end;
+}
+
+.received {
+  background: #262626;
+  color: white;
+  align-self: flex-start;
+}
+
+/* Button */
+.btn {
+  padding: 10px;
+  text-align: center;
+}
+
+button {
+  padding: 12px 28px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(45deg, #FFD700, #FFC300);
+  color: #333;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+
+  box-shadow: 
+    0 0 10px rgba(255,215,0,0.6),
+    0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* ✨ Hover effect */
+button:hover {
+  transform: scale(1.08);
+  box-shadow: 
+    0 0 20px rgba(255,215,0,0.9),
+    0 10px 25px rgba(0,0,0,0.4);
+}
+
+/* 💖 Hearts */
+.heart {
+  position: fixed;
+  color: red;
+  font-size: 18px;
+  animation: explode 1s ease-out forwards;
+}
+@keyframes explode {
+  from { transform: scale(1); opacity: 1; }
+  to { transform: scale(2) translateY(-120px); opacity: 0; }
+}
+
+/* 🌙 Eid Page */
+.eid {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.box {
+  background: rgba(255,255,255,0.1);
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  color: white;
+}
+
+/* 📸 Aesthetic photo */
+.box img {
+  width: 260px;
+  max-width: 90%;
+  border-radius: 12px;
+  padding: 10px;
+  background: rgba(15,32,39,0.9);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+  transform: rotate(-3deg);
+  animation: floatImg 4s ease-in-out infinite;
+}
+
+@keyframes floatImg {
+  0% { transform: translateY(0px) rotate(-3deg); }
+  50% { transform: translateY(-10px) rotate(-2deg); }
+  100% { transform: translateY(0px) rotate(-3deg); }
+}
+</style>
+</head>
+
+<body>
+
+<audio id="bgMusic" src="music.mp3" loop></audio>
+
+<div class="moon"></div>
+<div class="cloud"></div>
+<div class="cloud cloud2"></div>
+<div class="mosque"></div>
+
+<!-- 📱 Chat -->
+<div class="phone" id="phone">
+  <div class="header">
+    <div class="profile">
+      <img src="profile.jpg">
+      <div>
+        <div class="name">리미</div>
+        <div class="username">taetaebabyv</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chat" id="chat"></div>
+  <div class="typing" id="typingDots">typing...</div>
+
+  <div class="btn">
+    <button onclick="startChat()">Open Chat 💬</button>
+  </div>
+</div>
+
+<!-- 🌙 Eid -->
+<div class="eid" id="eidPage">
+  <div class="box" id="content">
+    <img src="photo.png"><br>
+    <h1>Eid Mubarak 🌙</h1>
+    <p id="typing"></p>
+    <button onclick="openGift()">Open Your Gift 🎁</button>
+  </div>
+</div>
+
+<script>
+const chat = document.getElementById("chat");
+const typingDots = document.getElementById("typingDots");
+
+const messages = [
+  {text: "Hey Rimi ❤️", type: "sent"},
+  {text: "Eid Mubarak 🌙", type: "sent"},
+
+  {text: "Eid Mubarak", type: "received"},
+
+  {text: "I know things are not perfect...", type: "sent"},
+  {text: "but you still matter to me a lot", type: "sent"},
+
+  {text: "This Eid we are apart...", type: "sent"},
+  {text: "but I hope next Eid we’ll be together 😌", type: "sent"},
+
+  {text: "no doubts, no heavy feelings...", type: "sent"},
+  {text: "just us ❤️", type: "sent"},
+
+  {text: "I’m praying Allah makes it happen", type: "sent"},
+  {text: "and that you have a really beautiful Eid", type: "sent"},
+
+  {text: "I know I hurt you...", type: "sent"},
+  {text: "and I’m really sorry for that", type: "sent"},
+
+  {text: "but I still want one thing", type: "sent"},
+  {text: "to see you happy... no matter what", type: "sent"},
+
+  {text: "so please don’t forget me completely 🥺", type: "sent"},
+
+  {text: "I’m always here for you", type: "sent"},
+  {text: "anytime... any day", type: "sent"},
+
+  {text: "and maybe someday...", type: "sent"},
+  {text: "you unblock me by mistake 😅", type: "sent"},
+
+  {text: "Eid Mubarak again, Rimi ❤️", type: "sent"},
+
+  {text: "hih", type: "received"}
+];
+
+let i = 0;
+
+function startChat(){
+  document.querySelector("button").style.display = "none";
+  showMessage();
+}
+
+function showMessage(){
+  if(i >= messages.length){
+    showSeen();
+    setTimeout(showEid, 1500);
+    return;
+  }
+
+  const msgData = messages[i];
+
+  // typing indicator ON
+  typingDots.style.display = "block";
+
+  // different delay (her replies slower)
+ let delay;
+
+if(msgData.type === "sent"){
+  delay = 1200 + Math.random()*1200;   // you type slower
+} else {
+  delay = 1800 + Math.random()*1800;   // she replies even slower
+}
+
+  setTimeout(() => {
+    typingDots.style.display = "none";
+
+    const msg = document.createElement("div");
+    msg.className = "msg " + msgData.type;
+    msg.innerText = msgData.text;
+
+    chat.appendChild(msg);
+    chat.scrollTop = chat.scrollHeight;
+
+    explodeHearts();
+
+    i++;
+    showMessage();
+
+  }, delay);
+}
+
+// 👁️ seen
+function showSeen(){
+  const seen = document.createElement("div");
+  seen.className = "seen";
+  seen.innerText = "Seen";
+  chat.appendChild(seen);
+}
+
+function showEid(){
+  document.getElementById("phone").style.display = "none";
+  document.getElementById("eidPage").style.display = "flex";
+
+  const music = document.getElementById("bgMusic");
+  music.volume = 0;
+  music.play().catch(()=>{});
+
+  let v = 0;
+  let fade = setInterval(() => {
+    if(v < 0.5){
+      v += 0.05;
+      music.volume = v;
+    } else clearInterval(fade);
+  }, 200);
+
+  startTyping();
+}
+
+function explodeHearts(){
+  for(let j=0;j<5;j++){
+    let h = document.createElement("div");
+    h.className = "heart";
+    h.innerText = "❤️";
+    h.style.left = Math.random()*100 + "vw";
+    h.style.top = Math.random()*100 + "vh";
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),1000);
+  }
+}
+
+const text = "Dear Rimi ❤️, this Eid I just want you to know... you are always in my heart ❤️";
+let t = 0;
+
+function startTyping(){
+  const el = document.getElementById("typing");
+  el.innerHTML = "";
+  t = 0;
+
+  function type(){
+    if(t < text.length){
+      el.innerHTML += text.charAt(t);
+      t++;
+      setTimeout(type, 40);
+    }
+  }
+  type();
+}
+
+function openGift(){
+  document.getElementById("content").innerHTML = `
+    <img src="final.png">
+    <h1>For You ❤️</h1>
+    <p>You are my happiness, my peace, my everything.</p>
+    <p>Eid Mubarak, my love 🌙✨</p>
+  `;
+}
+
+/* stars */
+for(let i=0;i<70;i++){
+  let star = document.createElement("div");
+  star.className = "star";
+  star.style.top = Math.random()*100 + "vh";
+  star.style.left = Math.random()*100 + "vw";
+  document.body.appendChild(star);
+}
+
+// ⭐ Create floating golden stars
+setInterval(() => {
+  const star = document.createElement("div");
+  star.className = "gold-star";
+  star.innerHTML = "⭐";
+
+  star.style.left = Math.random() * window.innerWidth + "px";
+  star.style.fontSize = (Math.random() * 10 + 12) + "px";
+
+  document.body.appendChild(star);
+
+  setTimeout(() => star.remove(), 6000);
+}, 400);
+</script>
+
+</body>
+</html>
